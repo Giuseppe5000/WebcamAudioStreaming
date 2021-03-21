@@ -1,0 +1,7 @@
+/.idea/
+/Manifests/
+/opencv-linux-4.5.1/*
+!/opencv-linux-4.5.1/lib
+/out/production/
+WebcamAudioStreaming.iml
+
