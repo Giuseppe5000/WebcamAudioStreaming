@@ -27,6 +27,7 @@ public class SendAudio extends Thread
                        try {
                                DatagramPacket audio = new DatagramPacket(Record().readAllBytes(),Record().readAllBytes().length, InetAddress.getByName(ip), port);
                                socket.send(audio);
+                               System.out.println("SENDAUDIO");
                        } catch (IOException e) {
                                e.printStackTrace();
                        }
@@ -69,7 +70,7 @@ public class SendAudio extends Thread
 
                 // Here, stopped is a global boolean set by another thread.
                 long initTime = System.currentTimeMillis();
-                long finalTime = initTime + 2000;
+                long finalTime = initTime + 1000;
                 //Ciclo per 2 secondi
                 while (initTime < finalTime) {
                         // Read the next chunk of data from the TargetDataLine.
@@ -77,7 +78,7 @@ public class SendAudio extends Thread
                         // Save this chunk of data.
                         out.write(data, 0, numBytesRead);
 
-                        //i++;
+                        initTime = System.currentTimeMillis();
                 }
 
                 byte[] audioBytes = out.toByteArray();
