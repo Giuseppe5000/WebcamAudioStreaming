@@ -27,7 +27,6 @@ public class SendAudio extends Thread
                        try {
                                DatagramPacket audio = new DatagramPacket(Record().readAllBytes(),Record().readAllBytes().length, InetAddress.getByName(ip), port);
                                socket.send(audio);
-                               System.out.println("SENDAUDIO");
                        } catch (IOException e) {
                                e.printStackTrace();
                        }
@@ -38,8 +37,8 @@ public class SendAudio extends Thread
         {
                 AudioFormat.Encoding encoding = AudioFormat.Encoding.PCM_SIGNED;
                 float rate = 44100.0f;
-                int channels = 1;//2
-                int sampleSize = 8;//16
+                int channels = 1;
+                int sampleSize = 8;
                 boolean bigEndian = true;
                 AudioFormat format = new AudioFormat(encoding, rate, sampleSize, channels, (sampleSize / 8) * channels, rate, bigEndian);
 
